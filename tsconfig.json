@@ -17,6 +17,26 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ui": [
+        "dist/ui"
+      ],
+      "ui/*": [
+        "dist/ui/*"
+      ],
+      "devkit": [
+        "dist/devkit"
+      ],
+      "devkit/*": [
+        "dist/devkit/*"
+      ],
+      "cli": [
+        "dist/cli"
+      ],
+      "cli/*": [
+        "dist/cli/*"
+      ]
+    }
   }
 }
