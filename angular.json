@@ -27,10 +27,13 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/assets/common.scss",
+              "src/assets/data_grid.scss",
+              "src/assets/nova-light/theme.css"
             ],
             "scripts": [],
-            "es5BrowserSupport": true
+            "es5BrowserSupport": false
           },
           "configurations": {
             "production": {
@@ -47,7 +50,7 @@
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
-              "vendorChunk": false,
+              "vendorChunk": true,
               "buildOptimizer": true,
               "budgets": [
                 {

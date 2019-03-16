@@ -1,31 +1,31 @@
 <div #scrollHeader class="ui-table-scrollable-header ui-widget-header">
   <div #scrollHeaderBox class="ui-table-scrollable-header-box">
-      <table class="ui-table-scrollable-header-table" [ngClass]="dt.tableStyleClass" [ngStyle]="dt.tableStyle">
-          <ng-container *ngTemplateOutlet="frozen ? dt.frozenColGroupTemplate||dt.colGroupTemplate : dt.colGroupTemplate; context {$implicit: columns}"></ng-container>
+      <table class="ui-table-scrollable-header-table" [ngClass]="dataGrid.tableStyleClass" [ngStyle]="dataGrid.tableStyle">
+          <ng-container *ngTemplateOutlet="frozen ? dataGrid.frozenColGroupTemplate||dataGrid.colGroupTemplate : dataGrid.colGroupTemplate; context {$implicit: columns}"></ng-container>
           <thead class="ui-table-thead">
-              <ng-container *ngTemplateOutlet="frozen ? dt.frozenHeaderTemplate||dt.headerTemplate : dt.headerTemplate; context {$implicit: columns}"></ng-container>
+              <ng-container *ngTemplateOutlet="frozen ? dataGrid.frozenHeaderTemplate||dataGrid.headerTemplate : dataGrid.headerTemplate; context {$implicit: columns}"></ng-container>
           </thead>
           <tbody class="ui-table-tbody">
-              <ng-template ngFor let-rowData let-rowIndex="index" [ngForOf]="dt.frozenValue" [ngForTrackBy]="dt.rowTrackBy">
-                  <ng-container *ngTemplateOutlet="dt.frozenRowsTemplate; context: {$implicit: rowData, rowIndex: rowIndex, columns: columns}"></ng-container>
+              <ng-template ngFor let-rowData let-rowIndex="index" [ngForOf]="dataGrid.frozenValue" [ngForTrackBy]="dataGrid.rowTrackBy">
+                  <ng-container *ngTemplateOutlet="dataGrid.frozenRowsTemplate; context: {$implicit: rowData, rowIndex: rowIndex, columns: columns}"></ng-container>
               </ng-template>
           </tbody>
       </table>
   </div>
 </div>
 <div #scrollBody class="ui-table-scrollable-body">
-  <table #scrollTable [ngClass]="{'ui-table-scrollable-body-table': true, 'ui-table-virtual-table': dt.virtualScroll}" [class]="dt.tableStyleClass" [ngStyle]="dt.tableStyle">
-      <ng-container *ngTemplateOutlet="frozen ? dt.frozenColGroupTemplate||dt.colGroupTemplate : dt.colGroupTemplate; context {$implicit: columns}"></ng-container>
-      <tbody class="ui-table-tbody" [pTableBody]="columns" [pTableBodyTemplate]="frozen ? dt.frozenBodyTemplate||dt.bodyTemplate : dt.bodyTemplate"></tbody>
+  <table #scrollTable [ngClass]="{'ui-table-scrollable-body-table': true, 'ui-table-virtual-table': dataGrid.virtualScroll}" [class]="dataGrid.tableStyleClass" [ngStyle]="dataGrid.tableStyle">
+      <ng-container *ngTemplateOutlet="frozen ? dataGrid.frozenColGroupTemplate||dataGrid.colGroupTemplate : dataGrid.colGroupTemplate; context {$implicit: columns}"></ng-container>
+      <tbody class="ui-table-tbody" [m-data-grid-body]="columns" [m-data-grid-body-template]="frozen ? dataGrid.frozenBodyTemplate||dataGrid.bodyTemplate : dataGrid.bodyTemplate"></tbody>
   </table>
-  <div #virtualScroller class="ui-table-virtual-scroller" *ngIf="dt.virtualScroll"></div>
+  <div #virtualScroller class="ui-table-virtual-scroller" *ngIf="dataGrid.virtualScroll"></div>
 </div>
-<div #scrollFooter *ngIf="dt.footerTemplate" class="ui-table-scrollable-footer ui-widget-header">
+<div #scrollFooter *ngIf="dataGrid.footerTemplate" class="ui-table-scrollable-footer ui-widget-header">
   <div #scrollFooterBox class="ui-table-scrollable-footer-box">
-      <table class="ui-table-scrollable-footer-table" [ngClass]="dt.tableStyleClass" [ngStyle]="dt.tableStyle">
-          <ng-container *ngTemplateOutlet="frozen ? dt.frozenColGroupTemplate||dt.colGroupTemplate : dt.colGroupTemplate; context {$implicit: columns}"></ng-container>
+      <table class="ui-table-scrollable-footer-table" [ngClass]="dataGrid.tableStyleClass" [ngStyle]="dataGrid.tableStyle">
+          <ng-container *ngTemplateOutlet="frozen ? dataGrid.frozenColGroupTemplate||dataGrid.colGroupTemplate : dataGrid.colGroupTemplate; context {$implicit: columns}"></ng-container>
           <tfoot class="ui-table-tfoot">
-              <ng-container *ngTemplateOutlet="frozen ? dt.frozenFooterTemplate||dt.footerTemplate : dt.footerTemplate; context {$implicit: columns}"></ng-container>
+              <ng-container *ngTemplateOutlet="frozen ? dataGrid.frozenFooterTemplate||dataGrid.footerTemplate : dataGrid.footerTemplate; context {$implicit: columns}"></ng-container>
           </tfoot>
       </table>
   </div>

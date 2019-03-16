@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit, OnDestroy, AfterViewChecked, Input, ViewChild, ElementRef, NgZone } from '@angular/core';
-import { Column } from '../../common/shared';
+import { ColumnComponent } from '../../shared/components/column.component';
 import { Subscription } from 'rxjs';
 import { DomHandler } from '../../dom/domhandler';
 import { DataGridComponent } from './data-grid.component';
@@ -13,7 +13,7 @@ import { DataGridComponent } from './data-grid.component';
 export class ScrollableViewComponent implements AfterViewInit, OnDestroy, AfterViewChecked {
 
   // tslint:disable-next-line:no-input-rename
-  @Input('m-scrollable-view') columns: Column[];
+  @Input('m-scrollable-view') columns: ColumnComponent[];
 
   @Input() frozen: boolean;
 

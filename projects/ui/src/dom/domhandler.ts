@@ -6,7 +6,7 @@ export class DomHandler {
 
     private static calculatedScrollbarHeight: number = null;
 
-    private static browser: any;
+    private static browser: any = null;
 
     public static addClass(element: any, className: string): void {
         if (element.classList) {
@@ -48,10 +48,10 @@ export class DomHandler {
     }
 
     public static siblings(element: any): any {
-        return Array.prototype.filter.call(element.parentNode.children,
-            (child) => {
-                return child !== element;
-            });
+        const filter = (child) => {
+            return child !== element;
+        };
+        return Array.prototype.filter.call(element.parentNode.children, filter);
     }
 
     public static find(element: any, selector: string): any[] {
@@ -251,7 +251,12 @@ export class DomHandler {
 
     public static matches(element, selector: string): boolean {
         const p = Element.prototype;
-        const f = p.matches || p.webkitMatchesSelector || p.mozMatchesSelector || p.msMatchesSelector ||
+        const f = p.matches ||
+            p.webkitMatchesSelector ||
+            // tslint:disable-next-line:no-string-literal
+            p['mozMatchesSelector'] ||
+            // tslint:disable-next-line:no-string-literal
+            p['msMatchesSelector'] ||
             function(s) {
                 return [].indexOf.call(document.querySelectorAll(s), this) !== -1;
             };
@@ -393,7 +398,8 @@ export class DomHandler {
     }
 
     public static isIOS() {
-        return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+        // tslint:disable-next-line:no-string-literal
+        return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window['MSStream'];
     }
 
     public static appendChild(element: any, target: any) {
@@ -462,16 +468,23 @@ export class DomHandler {
 
     public static clearSelection(): void {
         if (window.getSelection) {
-            if (window.getSelection().empty) {
-                window.getSelection().empty();
-            } else if (window.getSelection().removeAllRanges &&
-                window.getSelection().rangeCount > 0 &&
-                window.getSelection().getRangeAt(0).getClientRects().length > 0) {
+            // tslint:disable-next-line:no-string-literal
+            if (window['getSelection']().empty) {
+                // tslint:disable-next-line:no-string-literal
+                window['getSelection']().empty();
+            // tslint:disable-next-line:no-string-literal
+            } else if (window['getSelection']().removeAllRanges &&
+                // tslint:disable-next-line:no-string-literal
+                window['getSelection']().rangeCount > 0 &&
+                // tslint:disable-next-line:no-string-literal
+                window['getSelection']().getRangeAt(0).getClientRects().length > 0) {
                 window.getSelection().removeAllRanges();
             }
-        } else if (document.selection && document.selection.empty) {
+        // tslint:disable-next-line:no-string-literal
+        } else if (document['selection'] && document['selection'].empty) {
             try {
-                document.selection.empty();
+                // tslint:disable-next-line:no-string-literal
+                document['selection'].empty();
             } catch (error) {
                 // ignore IE bug
             }

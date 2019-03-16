@@ -1,5 +1,5 @@
 import { Component, OnInit, TemplateRef, Input } from '@angular/core';
-import { Column } from '../../common/shared';
+import { ColumnComponent } from '../../shared/components/column.component';
 import { DataGridComponent } from './data-grid.component';
 
 @Component({
@@ -11,7 +11,7 @@ import { DataGridComponent } from './data-grid.component';
 export class DataGridBodyComponent {
 
   // tslint:disable-next-line:no-input-rename
-  @Input('m-data-grid-body') columns: Column[];
+  @Input('m-data-grid-body') columns: ColumnComponent[];
 
   // tslint:disable-next-line:no-input-rename
   @Input('m-data-grid-body-template') template: TemplateRef<any>;

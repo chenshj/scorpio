@@ -19,3 +19,22 @@
 </ul>
 
 <router-outlet></router-outlet>
+
+<m-data-grid [value]="cars">
+  <ng-template mTemplate="header">
+      <tr>
+          <th>Vin</th>
+          <th>Year</th>
+          <th>Brand</th>
+          <th>Color</th>
+      </tr>
+  </ng-template>
+  <ng-template mTemplate="body" let-car>
+      <tr>
+          <td>{{car.vin}}</td>
+          <td>{{car.year}}</td>
+          <td>{{car.brand}}</td>
+          <td>{{car.color}}</td>
+      </tr>
+  </ng-template>
+</m-data-grid>

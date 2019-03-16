@@ -5,7 +5,7 @@ import {
 } from '@angular/core';
 import { DataGridService } from '../services/data-grid.service';
 import { BlockableUI } from '../../common/blockableui';
-import { PrimeTemplate } from '../../common/shared';
+import { ScorpioTemplateDirective } from '../../shared/directives/scorpio-template.directive';
 import { SortMeta } from '../../common/sortmeta';
 import { FilterMetadata } from '../../common/filtermetadata';
 import { ObjectUtils } from '../../utils/objectutils';
@@ -15,8 +15,8 @@ import { TableState } from '../../common/tablestate';
 @Component({
   selector: 'm-data-grid',
   templateUrl: './data-grid.component.html',
-  styleUrls: ['./data-grid.component.scss'],
-  providers: [DataGridService]
+  styleUrls: ['./data-grid.component.scss']
+  // providers: [DataGridService]
 })
 export class DataGridComponent implements OnInit, OnDestroy, AfterViewInit, AfterContentInit, BlockableUI {
 
@@ -275,7 +275,7 @@ export class DataGridComponent implements OnInit, OnDestroy, AfterViewInit, Afte
 
   @ViewChild('table') tableViewChild: ElementRef;
 
-  @ContentChildren(PrimeTemplate) templates: QueryList<PrimeTemplate>;
+  @ContentChildren(ScorpioTemplateDirective) templates: QueryList<ScorpioTemplateDirective>;
 
   // tslint:disable-next-line:variable-name
   _value: any[] = [];

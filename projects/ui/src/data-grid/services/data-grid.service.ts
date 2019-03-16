@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
-import { DataGridComponent } from '../components/data-grid.component';
 import { Subject } from 'rxjs';
 import { SortMeta } from '../../common/sortmeta';
 
 @Injectable({
-  providedIn: DataGridComponent
+  providedIn: 'root'
 })
 export class DataGridService {
 

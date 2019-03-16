@@ -18,8 +18,13 @@ import { ReorderableColumnDirective } from './directives/reorderable-column.dire
 import { EditableColumnDirective } from './directives/editable-column.directive';
 import { ReorderableRowHandleDirective } from './directives/reorderable-row-handle.directive';
 import { ReorderableRowDirective } from './directives/reorderable-row.directive';
+import { PaginatorModule } from '../paginator/paginator.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
+  imports: [
+    CommonModule, PaginatorModule
+  ],
   declarations: [
     DataGridComponent,
     DataGridBodyComponent,
@@ -40,8 +45,24 @@ import { ReorderableRowDirective } from './directives/reorderable-row.directive'
     ReorderableRowHandleDirective,
     ReorderableRowDirective
   ],
-  imports: [
-    CommonModule
-  ]
+  exports: [
+    DataGridComponent,
+    SharedModule,
+    SortableColumnDirective,
+    SelectableRowDirective,
+    RowTogglerDirective,
+    ContextMenuRowDirective,
+    ResizableColumnDirective,
+    ReorderableColumnDirective,
+    EditableColumnDirective,
+    CellEditorComponent,
+    SortIconComponent,
+    TableRadioButtonComponent,
+    DataGridCheckboxComponent,
+    DataGridHeaderCheckboxComponent,
+    ReorderableRowHandleDirective,
+    ReorderableRowDirective,
+    SelectableRowDblClickDirective
+  ],
 })
 export class DataGridModule { }

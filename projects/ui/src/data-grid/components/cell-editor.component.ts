@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterContentInit, ContentChildren, QueryList, TemplateRef } from '@angular/core';
-import { PrimeTemplate } from '../../common/shared';
+import { ScorpioTemplateDirective } from '../../shared/directives/scorpio-template.directive';
 import { DataGridComponent } from './data-grid.component';
 import { EditableColumnDirective } from '../directives/editable-column.directive';
 
@@ -10,7 +10,7 @@ import { EditableColumnDirective } from '../directives/editable-column.directive
 })
 export class CellEditorComponent implements AfterContentInit {
 
-  @ContentChildren(PrimeTemplate) templates: QueryList<PrimeTemplate>;
+  @ContentChildren(ScorpioTemplateDirective) templates: QueryList<ScorpioTemplateDirective>;
 
   inputTemplate: TemplateRef<any>;
 
