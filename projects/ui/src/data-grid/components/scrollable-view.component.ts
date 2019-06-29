@@ -17,19 +17,19 @@ export class ScrollableViewComponent implements AfterViewInit, OnDestroy, AfterV
 
   @Input() frozen: boolean;
 
-  @ViewChild('scrollHeader') scrollHeaderViewChild: ElementRef;
+  @ViewChild('scrollHeader', { read: true, static: true }) scrollHeaderViewChild: ElementRef;
 
-  @ViewChild('scrollHeaderBox') scrollHeaderBoxViewChild: ElementRef;
+  @ViewChild('scrollHeaderBox', { read: true, static: true }) scrollHeaderBoxViewChild: ElementRef;
 
-  @ViewChild('scrollBody') scrollBodyViewChild: ElementRef;
+  @ViewChild('scrollBody', { read: true, static: true }) scrollBodyViewChild: ElementRef;
 
-  @ViewChild('scrollTable') scrollTableViewChild: ElementRef;
+  @ViewChild('scrollTable', { read: true, static: true }) scrollTableViewChild: ElementRef;
 
-  @ViewChild('scrollFooter') scrollFooterViewChild: ElementRef;
+  @ViewChild('scrollFooter', { read: true, static: true }) scrollFooterViewChild: ElementRef;
 
-  @ViewChild('scrollFooterBox') scrollFooterBoxViewChild: ElementRef;
+  @ViewChild('scrollFooterBox', { read: true, static: true }) scrollFooterBoxViewChild: ElementRef;
 
-  @ViewChild('virtualScroller') virtualScrollerViewChild: ElementRef;
+  @ViewChild('virtualScroller', { read: true, static: true }) virtualScrollerViewChild: ElementRef;
 
   headerScrollListener: () => void;
 

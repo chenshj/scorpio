@@ -43,7 +43,7 @@ export class ColumnComponent implements AfterContentInit {
   @Input() resizable = true;
   @Output() sortFunction: EventEmitter<any> = new EventEmitter();
   @ContentChildren(ScorpioTemplateDirective) templates: QueryList<any>;
-  @ContentChild(TemplateRef) template: TemplateRef<any>;
+  @ContentChild(TemplateRef, { read: true, static: true }) template: TemplateRef<any>;
 
   public headerTemplate: TemplateRef<any>;
   public bodyTemplate: TemplateRef<any>;

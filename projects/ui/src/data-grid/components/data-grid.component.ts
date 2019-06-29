@@ -265,15 +265,15 @@ export class DataGridComponent implements OnInit, OnDestroy, AfterViewInit, Afte
 
   @Output() sortFunction: EventEmitter<any> = new EventEmitter();
 
-  @ViewChild('container') containerViewChild: ElementRef;
+  @ViewChild('container', { read: true, static: true }) containerViewChild: ElementRef;
 
-  @ViewChild('resizeHelper') resizeHelperViewChild: ElementRef;
+  @ViewChild('resizeHelper', { read: true, static: true }) resizeHelperViewChild: ElementRef;
 
-  @ViewChild('reorderIndicatorUp') reorderIndicatorUpViewChild: ElementRef;
+  @ViewChild('reorderIndicatorUp', { read: true, static: true }) reorderIndicatorUpViewChild: ElementRef;
 
-  @ViewChild('reorderIndicatorDown') reorderIndicatorDownViewChild: ElementRef;
+  @ViewChild('reorderIndicatorDown', { read: true, static: true }) reorderIndicatorDownViewChild: ElementRef;
 
-  @ViewChild('table') tableViewChild: ElementRef;
+  @ViewChild('table', { read: true, static: true }) tableViewChild: ElementRef;
 
   @ContentChildren(ScorpioTemplateDirective) templates: QueryList<ScorpioTemplateDirective>;
 

@@ -152,13 +152,13 @@ export class DropdownComponent implements OnInit, AfterViewInit, AfterContentIni
   // tslint:disable-next-line:no-output-on-prefix
   @Output() onHide: EventEmitter<any> = new EventEmitter();
 
-  @ViewChild('container') containerViewChild: ElementRef;
+  @ViewChild('container', { read: true, static: true }) containerViewChild: ElementRef;
 
-  @ViewChild('filter') filterViewChild: ElementRef;
+  @ViewChild('filter', { read: true, static: true }) filterViewChild: ElementRef;
 
-  @ViewChild('in') focusViewChild: ElementRef;
+  @ViewChild('in', { read: true, static: true }) focusViewChild: ElementRef;
 
-  @ViewChild('editableInput') editableInputViewChild: ElementRef;
+  @ViewChild('editableInput', { read: true, static: true }) editableInputViewChild: ElementRef;
 
   @ContentChildren(ScorpioTemplateDirective) templates: QueryList<any>;
 

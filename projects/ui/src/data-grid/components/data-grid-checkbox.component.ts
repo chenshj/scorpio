@@ -17,7 +17,7 @@ export class DataGridCheckboxComponent implements OnInit, OnDestroy {
 
     @Input() index: number;
 
-    @ViewChild('box') boxViewChild: ElementRef;
+    @ViewChild('box', { read: true, static: true }) boxViewChild: ElementRef;
 
     checked: boolean;
 

@@ -16,7 +16,7 @@ export class TableRadioButtonComponent implements OnInit, OnDestroy {
 
     @Input() index: number;
 
-    @ViewChild('box') boxViewChild: ElementRef;
+    @ViewChild('box', { read: true, static: true }) boxViewChild: ElementRef;
 
     checked: boolean;
 

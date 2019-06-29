@@ -11,7 +11,7 @@ import { DataGridService } from '../services/data-grid.service';
 })
 export class DataGridHeaderCheckboxComponent implements OnInit, OnDestroy {
 
-    @ViewChild('box') boxViewChild: ElementRef;
+    @ViewChild('box', { read: true, static: true }) boxViewChild: ElementRef;
 
     @Input() disabled: boolean;
 
